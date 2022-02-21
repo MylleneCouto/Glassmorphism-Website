@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+section{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+video{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  object-fit: cover;
+}
+
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  padding: 40px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  text-transform: uppercase;
+  font-size: 2em;
+  position: relative;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  text-shadow: 2px 2px 0 rga(0,0,0,0.1);
+  transition: 0.5s;
+}
+
+.toggle{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: url(/assets/img/menu.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle.ativo{
+  background: url(/assets/img/close.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background-size: 40px;
+
+}
+
+.glass{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  backdrop-filter: blur(15px);
+  z-index: 1;
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+
+.ativo .glass{
+  width: 100%;
+  backdrop-filter: blur(20px);
+  box-shadow: 10px 0 15px rgba(0, 0, 0, 0.5);
+  transition-delay: 0s;
+}
+
+.texto{
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.texto h2{
+  position: relative;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  font-size: 10vw;
+  line-height: 0.55em;
+  text-shadow: 0 5px 5px rgba(0,0,0,0.2);
+
+}
+
+.texto span{
+  font-size: 0.2em;
+  font-weight: 300;
+  letter-spacing: 5px;
+  background-color: white;
+  color: black;
+  padding: 0 10px;
+  text-shadow: 0 5px 5px rgba(0,0,0,0);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+}
+
+.ativo .texto{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-200px);
+}
+
+.social{
+  position: absolute;
+  bottom: 40px;
+  right: 100px;
+  display: flex;
+  z-index: 20;
+}
+
+.social li{
+  list-style: none;
+  margin: 5px;
+  padding: 0 6px;
+  background-color: white;
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.social a{
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+
+.ativo .social li{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100px);
+}
+
+.nav{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 20;
+}
+
+.nav li{
+  list-style: none;
+  text-align: center;
+  margin: 15px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transform: translateX(200px);
+  transition-delay: calc(0.05s * var(--i));
+}
+
+.ativo .nav li{
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+  transform: translateX(0px);
+}
+
+.nav li a{
+  color: black;
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-color: white;
+  padding: 4px 10px;
+  display: inline-block;
+}
+
+.nav li a:hover{
+  background-color: black;
+  color: white;
+}
+
+@media (max-width:990px){
+
+  header{
+    padding: 20px;
+  }
+
+  .social{
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .texto h2{
+    font-size: 18vw;
+  }
+
+  .texto span{
+    font-size: 0.25em;
+    letter-spacing: 2px;
+    padding: 0 5px;
+  }
+
+}
